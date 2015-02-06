@@ -1,5 +1,5 @@
 {
-  "name": "baconjs",
+  "name": "baconjs-tests",
   "description": "A small functional reactive programming lib for JavaScript.",
   "version": "0.7.43",
   "keywords": [
