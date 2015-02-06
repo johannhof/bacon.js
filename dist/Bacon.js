@@ -36,7 +36,7 @@
   };
 
   assertEventStream = function(event) {
-    if (!(event instanceof EventStream)) {
+    if (event.subscribe == null) {
       throw new Exception("not an EventStream : " + event);
     }
   };
