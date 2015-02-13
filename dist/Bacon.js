@@ -42,7 +42,7 @@
   };
 
   assertObservable = function(event) {
-    if (event.onValue == null) {
+    if ((event != null ? event.onValue : void 0) == null) {
       throw new Exception("not an Observable : " + event);
     }
   };
@@ -56,7 +56,7 @@
   };
 
   isObservable = function(x) {
-    return x.onValue != null;
+    return (x != null ? x.onValue : void 0) != null;
   };
 
   assertArray = function(xs) {
