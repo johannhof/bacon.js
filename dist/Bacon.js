@@ -11,7 +11,7 @@
     }
   };
 
-  Bacon.version = '0.7.43';
+  Bacon.version = '<version>';
 
   Exception = (typeof global !== "undefined" && global !== null ? global : this).Error;
 
@@ -671,7 +671,7 @@
 
   convertArgsToFunction = function(obs, f, args, method) {
     var sampled;
-    if (f instanceof Property) {
+    if (f.changes != null) {
       sampled = f.sampledBy(obs, function(p, s) {
         return [p, s];
       });
@@ -1440,7 +1440,7 @@
   };
 
   toEvent = function(x) {
-    if (x instanceof Event) {
+    if (x != null ? typeof x.isEvent === "function" ? x.isEvent() : void 0 : void 0) {
       return x;
     } else {
       return nextEvent(x);
@@ -2782,7 +2782,7 @@
     return withDescription(this, "flatMapError", fn, this.mapError(function(err) {
       return new Error(err);
     }).flatMap(function(x) {
-      if (x instanceof Error) {
+      if (typeof x.isError === "function" ? x.isError() : void 0) {
         return fn(x.error);
       } else {
         return Bacon.once(x);

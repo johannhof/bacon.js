@@ -73,4 +73,4 @@ initialEvent = (value) -> new Initial(value, true)
 nextEvent = (value) -> new Next(value, true)
 endEvent = -> new End()
 # instanceof more performant than x.?isEvent?()
-toEvent = (x) -> if x instanceof Event then x else nextEvent x
+toEvent = (x) -> if x?.isEvent?() then x else nextEvent x
