@@ -671,7 +671,7 @@
 
   convertArgsToFunction = function(obs, f, args, method) {
     var sampled;
-    if (f.changes != null) {
+    if ((f != null ? f.changes : void 0) != null) {
       sampled = f.sampledBy(obs, function(p, s) {
         return [p, s];
       });
